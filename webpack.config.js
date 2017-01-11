@@ -18,11 +18,21 @@ const config = {
           loader: 'css-loader'
         }),
         test: /\.css$/
+      },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: { limit: 40000 }
+          },
+          'image-webpack-loader'
+        ]
       }
     ]
   },
   plugins: [
-    new ExtractTextPlugin('style.css')  
+    new ExtractTextPlugin('style.css')
   ]
 };
 
